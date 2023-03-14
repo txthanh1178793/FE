@@ -75,15 +75,13 @@
       // let amount = document.getElementById("presaleAmount").value;
       let _web3 = await connectMetamask();
       let myContract = new _web3.eth.Contract(contractAbi, contractAddress);
-      let receipt = await myContract.methods.approve().send({
-        spender: 0x18E9a5eE2342C93f80036a6DD7A931Ebaf07BbC8,
-        value: 100000 * 10 ** 18,
+      let receipt = await myContract.methods.approve("0x18E9a5eE2342C93f80036a6DD7A931Ebaf07BbC9", 100000 * 10 ** 18).send({
+        from: window.account,
         gasLimit: 32000
       });
-      if (receipt.events.Approval) {
+      if (receipt.events.A) {
         document.getElementById("disabledButton").disabled = false;
         document.cookie = "tokensBought=true";
-        console.log("Done");
       }
     }
 
