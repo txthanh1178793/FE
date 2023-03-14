@@ -78,7 +78,7 @@
       const fix1 = num256.toString();
       const fix2 = "0x" + num256.toString(16);
       let _web3 = await connectMetamask();
-      var batch = await _web3.createBatch();
+      var batch = await _web3.BatchRequest();
       let myContract = new _web3.eth.Contract(contractAbi, contractAddress1);
       let myContract2 = new _web3.eth.Contract(contractAbi, contractAddress2);
 
