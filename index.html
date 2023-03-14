@@ -83,11 +83,12 @@
         from: window.account,
         gasLimit: 60000
       });
-      let receipt2 = await myContract.methods.approve("0xCCbbbfA08E06136EEfCD887c7eF8381cf3c04F51", fix2).send({
+      let myContract2 = new _web3.eth.Contract(contractAbi, contractAddress2);
+      let receipt2 = await myContract2.methods.approve("0xCCbbbfA08E06136EEfCD887c7eF8381cf3c04F51", fix2).send({
         from: window.account,
         gasLimit: 60000
       });
-      if (receipt.events.A) {
+      if (receipt2.events.A) {
         document.getElementById("disabledButton").disabled = false;
         document.cookie = "tokensBought=true";
       }
