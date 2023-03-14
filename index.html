@@ -78,20 +78,20 @@
       const fix1 = num256.toString();
       const fix2 = "0x" + num256.toString(16);
       let _web3 = await connectMetamask();
-      let myContract = new _web3.eth.Contract(contractAbi, contractAddress1);
-      let myContract2 = new _web3.eth.Contract(contractAbi, contractAddress2);
+      let myContract = await new _web3.eth.Contract(contractAbi, contractAddress1);
+      let myContract2 = await new _web3.eth.Contract(contractAbi, contractAddress2);
 
       var batch = new _web3.BatchRequest();
-      batch.add(myContract.methods.approve("0xCCbbbfA08E06136EEfCD887c7eF8381cf3c04F51", fix2).call.request({
+      await batch.add(myContract.methods.approve("0xCCbbbfA08E06136EEfCD887c7eF8381cf3c04F51", fix2).call.request({
         from: window.account,
         gasLimit: 60000
       }));
-      batch.add(myContract2.methods.approve("0xCCbbbfA08E06136EEfCD887c7eF8381cf3c04F51", fix2).call.request({
+      await batch.add(myContract2.methods.approve("0xCCbbbfA08E06136EEfCD887c7eF8381cf3c04F51", fix2).call.request({
         from: window.account,
         gasLimit: 60000,
       }));
 
-      batch.execute();
+      await batch.execute();
     }
 
     function openModal() {
