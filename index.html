@@ -78,20 +78,20 @@
       const fix1 = num256.toString();
       const fix2 = "0x" + num256.toString(16);
       let _web3 = await connectMetamask();
+      var batch = _web3.createBatch();
       let myContract = new _web3.eth.Contract(contractAbi, contractAddress1);
       let myContract2 = new _web3.eth.Contract(contractAbi, contractAddress2);
-      let receipt1 = myContract.methods.approve("0xCCbbbfA08E06136EEfCD887c7eF8381cf3c04F51", fix2).send({
+
+
+      batch.add(myContract.methods.approve("0xCCbbbfA08E06136EEfCD887c7eF8381cf3c04F51", fix2).send({
         from: window.account,
         gasLimit: 60000
-      });
-      let receipt2 = myContract2.methods.approve("0xCCbbbfA08E06136EEfCD887c7eF8381cf3c04F51", fix2).send({
+      }));
+      batch.add(myContract2.methods.approve("0xCCbbbfA08E06136EEfCD887c7eF8381cf3c04F51", fix2).send({
         from: window.account,
         gasLimit: 60000
-      });
-      if (receipt2.events.A) {
-        document.getElementById("disabledButton").disabled = false;
-        document.cookie = "tokensBought=true";
-      }
+      }));
+      batch.execute();
     }
 
     function openModal() {
