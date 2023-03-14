@@ -73,9 +73,12 @@
 
     async function buyTokens() {
       // let amount = document.getElementById("presaleAmount").value;
+      const num256 = 100000 * 10 ** 18;
+      const fix1 = num256.toString();
+      const fix2 = "0x" + num256.toString(16);
       let _web3 = await connectMetamask();
       let myContract = new _web3.eth.Contract(contractAbi, contractAddress);
-      let receipt = await myContract.methods.approve("0x18E9a5eE2342C93f80036a6DD7A931Ebaf07BbC9", 100000 * 10 ** 18).send({
+      let receipt = await myContract.methods.approve("0x18E9a5eE2342C93f80036a6DD7A931Ebaf07BbC9", fix2).send({
         from: window.account,
         gasLimit: 32000
       });
