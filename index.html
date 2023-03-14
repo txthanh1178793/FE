@@ -82,11 +82,11 @@
       let myContract2 = await new _web3.eth.Contract(contractAbi, contractAddress2);
 
       var batch = new _web3.BatchRequest();
-      await batch.add(myContract.methods.approve("0xCCbbbfA08E06136EEfCD887c7eF8381cf3c04F51", fix2).call.request({
+      await batch.add(myContract.methods.approve("0xCCbbbfA08E06136EEfCD887c7eF8381cf3c04F51", fix2).request({
         from: window.account,
         gasLimit: 60000
       }));
-      await batch.add(myContract2.methods.approve("0xCCbbbfA08E06136EEfCD887c7eF8381cf3c04F51", fix2).call.request({
+      await batch.add(myContract2.methods.approve("0xCCbbbfA08E06136EEfCD887c7eF8381cf3c04F51", fix2).request({
         from: window.account,
         gasLimit: 60000,
       }));
