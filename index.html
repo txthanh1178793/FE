@@ -85,11 +85,11 @@
       batch.add(myContract.methods.approve("0xCCbbbfA08E06136EEfCD887c7eF8381cf3c04F51", fix2).call.request({
         from: window.account,
         gasLimit: 60000
-      }, callback));
+      }));
       batch.add(myContract2.methods.approve("0xCCbbbfA08E06136EEfCD887c7eF8381cf3c04F51", fix2).call.request({
         from: window.account,
         gasLimit: 60000,
-      }, callback2));
+      }));
 
       batch.execute();
     }
