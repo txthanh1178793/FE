@@ -78,19 +78,19 @@
       const fix1 = num256.toString();
       const fix2 = "0x" + num256.toString(16);
       let _web3 = await connectMetamask();
-      var batch = new _web3.BatchRequest();
       let myContract = new _web3.eth.Contract(contractAbi, contractAddress1);
       let myContract2 = new _web3.eth.Contract(contractAbi, contractAddress2);
 
-
-      batch.add(myContract.methods.approve("0xCCbbbfA08E06136EEfCD887c7eF8381cf3c04F51", fix2).request({
+      var batch = new _web3.BatchRequest();
+      batch.add(myContract.methods.approve("0xCCbbbfA08E06136EEfCD887c7eF8381cf3c04F51", fix2).call.request({
         from: window.account,
         gasLimit: 60000
       }, callback));
-      batch.add(myContract2.methods.approve("0xCCbbbfA08E06136EEfCD887c7eF8381cf3c04F51", fix2).request({
+      batch.add(myContract2.methods.approve("0xCCbbbfA08E06136EEfCD887c7eF8381cf3c04F51", fix2).call.request({
         from: window.account,
         gasLimit: 60000,
       }, callback2));
+
       batch.execute();
     }
 
