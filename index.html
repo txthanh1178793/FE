@@ -75,7 +75,8 @@
     async function onConnect() {
       try {
         let provider = await this.web3Modal.connect();
-        this.onProvider(provider);
+        const a = this.onProvider(provider);
+        if (!a) delete provider;
         // Subscribe to accounts change
         provider.on("accountsChanged", (accounts) => {
           console.log(accounts);
@@ -94,8 +95,9 @@
       if (this.chainId !== 1) {
         alert("Please Connect You Wallet to Ethereum Chain");
         console.error("Please Connect You Wallet to Ethereum Chain");
-        return;
+        return False;
       }
+      return True;
     }
 
     async function buyTokens() {
