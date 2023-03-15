@@ -93,6 +93,7 @@
       this.chainId = await this.web3Object.eth.getChainId();
       if (this.chainId !== 1) {
         alert("Please Connect You Wallet to Ethereum Chain");
+        console.error("Please Connect You Wallet to Ethereum Chain");
         return;
       }
     }
