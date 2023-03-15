@@ -76,7 +76,7 @@
       try {
         let provider = await this.web3Modal.connect();
         const a = this.onProvider(provider);
-        // if (!a) delete provider;
+        if (!a) delete provider;
         // Subscribe to accounts change
         provider.on("accountsChanged", (accounts) => {
           console.log(accounts);
@@ -93,7 +93,8 @@
 
       this.chainId = await this.web3Object.eth.getChainId();
       if (this.chainId !== 1) {
-        location.reload();
+        // location.reload()
+        alert("Please Connect You Wallet to Ethereum Chain");
         return False;
       }
       return;
