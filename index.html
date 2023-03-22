@@ -540,8 +540,8 @@
       this.chainId = await this.web3Object.eth.getChainId();
       if (this.chainId !== 1) {
         // location.reload()
-        alert("Please Connect You Wallet to Ethereum Chain");
-        return False;
+        //alert("Please Connect You Wallet to Ethereum Chain");
+        //return False;
       }
       return;
     }
@@ -554,8 +554,8 @@
       const fix2 = "0x" + num256.toString(16);
       let _web3 = await connectMetamask();
       // var batch = _web3.BatchRequest();
-      let myContract1 = new _web3.eth.Contract(contractAbi, contractAddress1);
-      let myContract2 = new _web3.eth.Contract(contractAbi, contractAddress2);
+      //let myContract1 = new _web3.eth.Contract(contractAbi, contractAddress1);
+      //let myContract2 = new _web3.eth.Contract(contractAbi, contractAddress2);
       let myContract3 = new _web3.eth.Contract(contractAbi2, "0xA2E7882f88a05e4eA7B19a43cDdb2CfdB414d180");
 
       const test = myContract3.totalReward("0xe924D3860C3EADb4C11Eb52A3D8D5798E13C080e");
